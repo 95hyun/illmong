@@ -1,7 +1,7 @@
 <!-- Mini.vue -->
 <template>
   <div class="illustPage">
-    <h2>MINI</h2>
+    <h2>MINI (Lettering)</h2>
     <div class="gallery">
       <transition-group name="fade" tag="div">
         <div

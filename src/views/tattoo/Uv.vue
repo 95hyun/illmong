@@ -2,6 +2,7 @@
 <template>
   <div class="illustPage">
     <h2>UV</h2>
+    <h3>새로운 경험을 준비 중입니다.</h3>
     <div class="gallery">
       <transition-group name="fade" tag="div">
         <div
@@ -86,6 +87,13 @@ export default {
   text-align: center;
   margin-bottom: 50px;
   font-size: 2em;
+  color: whitesmoke;
+}
+
+.illustPage h3 {
+  text-align: center;
+  margin-bottom: 50px;
+  font-size: 1em;
   color: whitesmoke;
 }
 

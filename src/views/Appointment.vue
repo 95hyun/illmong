@@ -35,6 +35,7 @@
     <a href="https://open.kakao.com/me/Onedreamtattoo" target="_blank" rel="noopener noreferrer">
       <button type="button" class="btn">1:1 문의 신청</button>
     </a>
+    <p>1:1 문의 신청 버튼을 클릭하면 오픈 카카오톡으로 연결됩니다</p>
   </div>
 </template>
 
@@ -96,6 +97,7 @@ export default {
   padding: 40px 20px;
   max-width: 1200px;
   margin: 0 auto;
+  color: #565656;
 }
 
 /* 텍스트 콘텐츠 스타일 */
@@ -138,15 +140,15 @@ export default {
 /* 텍스트 스타일 */
 .appointment-content h1 {
   font-size: 2em;
-  margin-bottom: 20px;
-  color: #333;
+  margin-bottom: 40px;
+  color: ghostwhite;
   text-align: center;
 }
 
 .appointment-details p {
   text-align: left;
   font-size: 0.8em;
-  color: #555;
+  color: ghostwhite;
   line-height: 1.6;
   margin: 10px 0; /* 각 p 요소에 간격 추가 */
 }
@@ -154,7 +156,7 @@ export default {
 .appointment-info p {
   text-align: center;
   font-size: 0.8em;
-  color: #555;
+  color: ghostwhite;
   line-height: 1.6;
   margin: 10px 0; /* 각 p 요소에 간격 추가 */
 }
