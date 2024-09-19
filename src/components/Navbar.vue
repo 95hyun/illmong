@@ -1,10 +1,12 @@
 <!-- Navbar.vue -->
 <template>
-  <div class ="borderEmpty">
   <nav class="navbar">
     <div class="nav-container">
       <div class="logo">
-        <router-link to="/">一夢</router-link>
+        <router-link to="/">
+          <img src="@/assets/logo.jpg" alt="Logo" class="logo-image" />
+<!--          <span class="logo-text">一夢</span>-->
+        </router-link>
       </div>
       <div class="menu-icon" @click="toggleMenu" aria-label="Toggle navigation menu" role="button" tabindex="0">
         <div :class="['line', { 'active': isMenuOpen }]"></div>
@@ -24,9 +26,9 @@
         <li class="dropdown">
           <span @click="toggleSubMenu('tattoo')">TATTOO</span>
           <ul :class="['dropdown-menu', { 'active': activeSubMenu === 'tattoo' }]">
+            <li><router-link to="/tattoo/illust">ILLUST</router-link></li>
             <li><router-link to="/tattoo/blackwork">BLACK WORK</router-link></li>
             <li><router-link to="/tattoo/blackandgrey">BLACK & GREY</router-link></li>
-            <li><router-link to="/tattoo/color">COLOR</router-link></li>
             <li><router-link to="/tattoo/uv">UV</router-link></li>
             <li><router-link to="/tattoo/mini">MINI (LETTERING)</router-link></li>
           </ul>
@@ -36,7 +38,6 @@
       </ul>
     </div>
   </nav>
-  </div>
 </template>
 
 <script>
@@ -75,12 +76,13 @@ export default {
   padding: 0;
 }
 
-.borderEmpty {
-  margin: 10px;
+/* Prevent horizontal overflow */
+body {
+  overflow-x: hidden;
 }
 
 .navbar {
-  background-color: grey;
+  background-color: black;
   width: 100%;
   padding: 10px 20px;
 }
@@ -91,13 +93,33 @@ export default {
   align-items: center;
   max-width: 1200px; /* 최대 너비 설정 */
   margin: 0 auto; /* 중앙 정렬 */
+  padding: 0 30px; /* 내부 패딩 추가 */
+  background-color: black;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
 }
 
 .logo a {
+  display: flex;
+  align-items: center;
   text-decoration: none;
-  color: black;
+  color: whitesmoke;
   font-size: 1.5em;
   font-weight: bold;
+}
+
+.logo-image {
+  width: 40px; /* 원하는 크기로 조정 */
+  height: 40px;
+  object-fit: contain;
+  margin-right: 10px; /* 텍스트와 이미지 사이 간격 */
+}
+
+.logo-text {
+  display: inline-block;
 }
 
 .menu-icon {
@@ -109,7 +131,7 @@ export default {
 .menu-icon .line {
   width: 25px;
   height: 3px;
-  background-color: black;
+  background-color: #ffffff;
   margin: 4px 0;
   transition: all 0.3s ease;
 }
@@ -129,8 +151,8 @@ export default {
 .nav-list {
   display: flex;
   list-style: none;
-  /* Flex 아이템 사이에 공간을 주기 위해 margin 사용 */
   gap: 20px; /* 각 메뉴 아이템 사이에 간격 추가 */
+  padding: 0; /* 패딩 초기화 */
 }
 
 .nav-list li {
@@ -140,10 +162,11 @@ export default {
 .nav-list li a,
 .nav-list li span {
   text-decoration: none;
-  color: black;
+  color: whitesmoke;
   cursor: pointer;
   display: block;
   padding: 15px 0; /* 세로 패딩 추가 */
+  white-space: nowrap; /* 텍스트 줄바꿈 방지 */
 }
 
 /* 드롭다운 메뉴 스타일 */
@@ -152,12 +175,13 @@ export default {
   position: absolute;
   top: 100%;
   left: 0;
-  background-color: gray;
+  background-color: #212121; /* 배경색을 더 진하게 설정 */
   list-style: none;
   padding: 10px 0;
   margin: 0;
   min-width: 150px;
   z-index: 1000; /* 드롭다운 메뉴가 다른 요소 위에 표시되도록 설정 */
+  border-radius: 4px; /* 약간의 둥근 모서리 */
 }
 
 .dropdown-menu li {
@@ -165,7 +189,11 @@ export default {
 }
 
 .dropdown-menu li a {
-  color: black;
+  color: white; /* 텍스트 색상을 흰색으로 변경 */
+}
+
+.dropdown-menu li a:hover {
+  background-color: #1e1e1e; /* 호버 시 더 진한 배경색 */
 }
 
 .nav-list > .dropdown:hover .dropdown-menu {
@@ -174,8 +202,14 @@ export default {
 
 /* 모바일 스타일 */
 @media (max-width: 768px) {
-  .borderEmpty {
-    margin : 0px
+  .navbar {
+    background-color: #000000;
+    width: 100%;
+    padding: 10px 20px;
+  }
+
+  .nav-container {
+    padding: 0 10px; /* 좌우 패딩 조정 */
   }
 
   .menu-icon {
@@ -188,7 +222,7 @@ export default {
     left: -100%;
     width: 100%;
     height: calc(100% - 60px);
-    background-color: #444;
+    background-color: #0e0e0e;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
@@ -212,8 +246,9 @@ export default {
   .nav-list > .dropdown .dropdown-menu {
     position: static;
     display: none;
-    background-color: #444;
+    background-color: #666; /* 모바일용 배경색 조정 */
     width: 100%;
+    border-radius: 0;
   }
 
   .nav-list > .dropdown .dropdown-menu.active {
@@ -222,7 +257,7 @@ export default {
 
   .nav-list li a,
   .nav-list li span {
-    color: black;
+    color: white; /* 텍스트 색상을 흰색으로 변경 */
     width: 100%;
     display: block;
   }
@@ -246,7 +281,7 @@ export default {
 
   /* 마진 대신 패딩과 gap 사용 */
   .nav-list {
-    padding: 0 30px; /* 좌우 패딩 추가 */
+    padding: 0 20px; /* 좌우 패딩 추가 */
   }
 
   .nav-list li {
@@ -270,6 +305,32 @@ export default {
 
   .menu-icon .line.active:nth-child(3) {
     transform: rotate(-45deg) translate(5px, -5px);
+  }
+
+  /* 호버 상태를 모바일에서도 쉽게 인식할 수 있도록 터치 기반 효과 추가 */
+  .nav-list > .dropdown > span:active,
+  .nav-list > .dropdown > span:focus {
+    background-color: #333; /* 터치 또는 포커스 시 배경색 변경 */
+    border-radius: 4px;
+  }
+}
+
+/* 태블릿 및 PC 스타일 개선 */
+@media (min-width: 769px) {
+  .logo a {
+    display: flex;
+    align-items: center;
+  }
+
+  .logo-image {
+    width: 50px; /* 원하는 크기로 조정 */
+    height: 50px;
+    object-fit: contain;
+    margin-right: 15px; /* 텍스트와 이미지 사이 간격 */
+  }
+
+  .logo-text {
+    font-size: 1em; /* 텍스트 크기 조정 */
   }
 }
 </style>

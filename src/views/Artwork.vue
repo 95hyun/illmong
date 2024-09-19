@@ -15,6 +15,7 @@ export default {
 
 <style scoped>
 .artwork {
-  padding: 20px;
+  padding: 10px;
+  text-align: center;
 }
 </style>

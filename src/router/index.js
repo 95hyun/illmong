@@ -9,9 +9,10 @@ import Made from "@/views/artwork/Made.vue";
 import Tattoo from "@/views/Tattoo.vue";
 import BlackWork from "@/views/tattoo/BlackWork.vue";
 import BlackAndGrey from "@/views/tattoo/BlackAndGrey.vue";
-import Color from "@/views/tattoo/Color.vue";
 import Mini from "@/views/tattoo/Mini.vue";
 import Uv from "@/views/tattoo/Uv.vue";
+import Appointment from "@/views/Appointment.vue";
+import Illust from "@/views/tattoo/Illust.vue";
 
 const routes = [
     { path : '/', name : 'HomePage', component: Home },
@@ -26,17 +27,18 @@ const routes = [
         ],
     },
     {
-        path : '/tattoo',
-        name : 'TattooLayout',
+        path: '/tattoo',
+        name: 'TattooLayout',
         component: Tattoo,
         children: [
-            { path: 'blackwork', name: 'BlackWorkPage', component: BlackWork },
-            { path: 'blackandgrey', name: 'BlackAndGreyPage', component: BlackAndGrey },
-            { path: 'color', name: 'ColorPage', component: Color },
-            { path: 'mini', name: 'MiniPage', component: Mini },
-            { path: 'uv', name: 'UvPage', component: Uv },
+            {path: 'illust', name: 'IllustPage', component: Illust},
+            {path: 'blackwork', name: 'BlackWorkPage', component: BlackWork},
+            {path: 'blackandgrey', name: 'BlackAndGreyPage', component: BlackAndGrey},
+            {path: 'mini', name: 'MiniPage', component: Mini},
+            {path: 'uv', name: 'UvPage', component: Uv},
         ]
     },
+    { path : '/appointment', name : 'AppointmentPage', component: Appointment},
     { path : '/contact', name : 'ContactPage', component: Contact },
 ];
 
