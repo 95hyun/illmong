@@ -5,7 +5,7 @@
       <div class="logo">
         <router-link to="/">
           <img src="@/assets/logo.jpg" alt="Logo" class="logo-image" />
-<!--          <span class="logo-text">一夢</span>-->
+          <!-- <span class="logo-text">一夢</span> -->
         </router-link>
       </div>
       <div class="menu-icon" @click="toggleMenu" aria-label="Toggle navigation menu" role="button" tabindex="0">
@@ -63,6 +63,13 @@ export default {
       } else {
         this.activeSubMenu = menu;
       }
+    },
+  },
+  watch: {
+    // 라우트가 변경될 때 메뉴를 닫기
+    '$route'() {
+      this.isMenuOpen = false;
+      this.activeSubMenu = null;
     },
   },
 };
@@ -132,7 +139,7 @@ body {
   width: 25px;
   height: 3px;
   background-color: #ffffff;
-  margin: 4px 0;
+  margin: 2px 0;
   transition: all 0.3s ease;
 }
 
