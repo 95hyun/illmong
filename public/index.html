@@ -6,6 +6,12 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
     <title><%= htmlWebpackPlugin.options.title %></title>
+
+      <meta property="og:title" content="<%= htmlWebpackPlugin.options.title %>" />
+      <meta property="og:description" content="ILL MONG TATTOO ART" />
+      <meta property="og:image" content="<%= BASE_URL %>logo.jpg" />
+      <meta property="og:url" content="<%= htmlWebpackPlugin.options.baseUrl %>" />
+      <meta property="og:type" content="website" />
   </head>
   <body>
     <noscript>
