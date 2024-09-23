@@ -35,6 +35,7 @@ export default {
       displayedImages: [],
       imagesPerLoad: 6, // 한 번에 로드할 이미지 수
       observer: null,
+      allLoaded: false, // 모든 이미지가 로드되었는지 여부
     };
   },
   mounted() {
@@ -43,25 +44,53 @@ export default {
     // Intersection Observer를 사용하여 스크롤 시 이미지 로드
     this.observer = new IntersectionObserver(this.handleIntersect, {
       root: null,
-      rootMargin: '0px',
+      rootMargin: '0px 0px 200px 0px', // rootMargin을 늘려서 더 일찍 트리거되도록 설정
       threshold: 0.1,
     });
 
     if (this.$refs.scrollTrigger) {
       this.observer.observe(this.$refs.scrollTrigger);
     }
+
+    // 초기 로드 후 콘텐츠가 뷰포트를 채우지 못하면 추가 로드
+    this.$nextTick(() => {
+      const galleryHeight = this.$el.querySelector('.gallery').offsetHeight;
+      const windowHeight = window.innerHeight;
+      if (galleryHeight < windowHeight) {
+        this.loadImages();
+      }
+    });
   },
   methods: {
     loadImages() {
+      if (this.allLoaded) return;
+
       const nextImages = this.allImages.slice(
           this.displayedImages.length,
           this.displayedImages.length + this.imagesPerLoad
       );
+
+      if (nextImages.length === 0) {
+        this.allLoaded = true;
+        if (this.observer && this.$refs.scrollTrigger) {
+          this.observer.unobserve(this.$refs.scrollTrigger);
+        }
+        return;
+      }
+
       this.displayedImages = [...this.displayedImages, ...nextImages];
+
+      // 모든 이미지가 로드되었는지 확인
+      if (this.displayedImages.length >= this.allImages.length) {
+        this.allLoaded = true;
+        if (this.observer && this.$refs.scrollTrigger) {
+          this.observer.unobserve(this.$refs.scrollTrigger);
+        }
+      }
     },
     handleIntersect(entries) {
       const entry = entries[0];
-      if (entry.isIntersecting) {
+      if (entry.isIntersecting && !this.allLoaded) {
         this.loadImages();
       }
     },

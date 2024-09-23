@@ -194,6 +194,7 @@ export default {
 
 /* 반응형 디자인: 모바일 */
 @media (max-width: 767px) {
+
   .copy-btn {
     font-size: 0.8em;
     padding: 5px 8px;

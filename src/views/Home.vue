@@ -48,10 +48,11 @@ export default {
 <style scoped>
 /* 전체 컨테이너 스타일 */
 .home {
-  padding: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
+  min-height: 80vh; /* 전체 뷰포트 높이 사용 */
+  padding: 0; /* 패딩 제거 */
 }
 
 /* 콘텐츠 컨테이너 */
@@ -60,6 +61,8 @@ export default {
   flex-direction: column; /* 모바일: 세로 배치 */
   align-items: center;
   text-align: center;
+  width: 100%;
+  max-width: 1200px; /* 최대 너비 설정 */
 }
 
 /* 이미지 컨테이너 */
@@ -78,28 +81,29 @@ export default {
   width: 100%;
   height: auto;
   display: block;
+  border-radius: 8px; /* 이미지에 약간의 둥근 모서리 추가 (선택 사항) */
 }
 
 /* PC 화면을 위한 스타일 */
 @media (min-width: 768px) {
   .content {
-    flex-direction: row; /* PC: 가로 배치 */
+    flex-direction: column;
     align-items: center;
     text-align: left;
   }
 
   .image {
-    margin: 20px 0;
+    margin: 0; /* PC에서의 마진 제거 */
     flex: 1;
     opacity: 0; /* 초기 상태를 투명하게 설정 */
   }
 
-  .image picture img {
-    max-width: 100%;
-  }
-
   .image.fade-in {
     opacity: 1;
+  }
+
+  .image picture img {
+    max-width: 100%;
   }
 
   /* 텍스트가 필요할 경우 아래 주석을 해제하여 사용하세요 */
@@ -122,6 +126,13 @@ export default {
 @media (max-width: 767px) {
   .image {
     max-width: 90%; /* 모바일에서 이미지 크기 조정 */
+  }
+}
+
+/* 추가적인 작은 모바일 스타일 */
+@media (max-width: 480px) {
+  .image {
+    max-width: 100%; /* 모바일에서 이미지 크기 조정 */
   }
 }
 </style>
