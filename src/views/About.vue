@@ -5,14 +5,14 @@
       <div class="profile_image">
         <img src="@/assets/image/about/about_profile_img.jpeg" alt="Profile Image" />
       </div>
-      <p>Nightmare, Idea, Mirage, Fable, fabrication Imaging, Visualization, Cloudkand, Shangrila, UTOpia.</p>
+      <p>- Nightmare, Idea, Mirage, Fable, fabrication Imaging, Visualization, Cloudkand, Shangrila, UTOpia.</p>
       <p>"A dream you dream alone is only a dream. A dream you dream together is reality."</p>
       <div class="logo_image">
         <img src="@/assets/logo.jpg" alt="Logo Image" />
       </div>
-      <p>악몽, 생각, 망상, 우화, 위조, 발명, 공상, 몽상, 시각화, 공상, 낙원, 이상향</p>
+      <p>- 악몽, 생각, 망상, 우화, 위조, 발명, 공상, 몽상, 시각화, 공상, 낙원, 이상향</p>
       <p>혼자 꾸는 꿈은 꿈 함께 꾸는 꿈은 현실</p>
-      <p>당신의 꿈을 제 꿈으로 재해석하길 바랍니다.
+      <p>- 당신의 꿈을 제 꿈으로 재해석하길 바랍니다.
         그를 해몽하여 분석하며 감각적인 작업을 바랍니다.</p>
     </div>
   </div>
